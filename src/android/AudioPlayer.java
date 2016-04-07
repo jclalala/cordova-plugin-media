@@ -174,9 +174,13 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 
         if (!file.startsWith("/")) {
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                file = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + file;
+                String externalStorageDir = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator;
+                f.mkdirs(externalStorageDir);
+                file = externalStorageDir + file;
             } else {
-                file = "/data/data/" + handler.cordova.getActivity().getPackageName() + "/cache/" + file;
+                String cacheDir = "/data/data/" + handler.cordova.getActivity().getPackageName() + "/cache/";
+                f.mkdirs(cacheDir);
+                file = cacheDir + file;
             }
         }
 
