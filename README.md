@@ -17,7 +17,7 @@
 #         under the License.
 -->
 
-Mirror of https://github.com/apache/cordova-plugin-media
+Fork from https://github.com/apache/cordova-plugin-media
 
 # Changes
 Android - change recording format to m4a
